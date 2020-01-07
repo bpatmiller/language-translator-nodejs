@@ -1,0 +1,54 @@
+// COLORS
+$navy: #001F3F;
+$blue: #0074D9;
+$aqua: #7FDBFF;
+$teal: #39CCCC;
+$olive: #3D9970;
+$green: #2ECC40;
+$lime: #01FF70;
+$yellow: #FFDC00;
+$orange: #FF851B;
+$red: #FF4136;
+$fuchsia: #F012BE;
+$purple: #B10DC9;
+$maroon: #85144B;
+$white: #FFFFFF;
+$silver: #DDDDDD;
+$gray: #AAAAAA;
+$dark-gray: #666666;
+$black: #111111;
+
+$header-height: 50px;
+$nav-width: 130px;
+
+
+body, html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: darken($white, 15);
+}
+
+
+@mixin unselectable {
+  user-select: none;
+  cursor: default;
+}
+@mixin transition {
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: ease;
+}
+
+
+nav>div, button, input, a, select, span.click, td.click {
+  &:hover {
+    box-shadow: 0 0 10px #9ecaed;
+  }
+}
+
+

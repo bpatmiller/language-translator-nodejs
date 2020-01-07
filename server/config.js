@@ -17,25 +17,24 @@
 'use strict';
 
 // Module dependencies
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 module.exports = function(app) {
-  // Configure Express
-  app.set('view engine', 'ejs');
-  app.set('views', __dirname + '/../views');
 
   // Only loaded when running in the IBM Cloud
   if (process.env.VCAP_APPLICATION) {
     require('./security')(app);
   }
 
+  // Setup static public directory
+  app.use(express.static(path.join(__dirname, '../build/client')));
+
   // Configure Express
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(morgan('dev'));
 
-  // Setup static public directory
-  app.use(express.static(__dirname + '/../public'));
 };

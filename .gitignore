@@ -1,5 +1,13 @@
+# IDEs #
+/.idea/
+
+# OS #
+.DS_Store
+
+
+/.cache/
+/build/
 node_modules
 .env
 npm-debug.log*
-.DS_Store
 .nyc_output

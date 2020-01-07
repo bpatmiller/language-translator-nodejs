@@ -22,7 +22,7 @@ const LanguageTranslatorV3 = require('ibm-watson/language-translator/v3');
 const { IamAuthenticator } = require('ibm-watson/auth');
 
 // Bootstrap application settings
-require('./config/express')(app);
+require('./config')(app);
 
 // Create the service wrapper
 const translator = new LanguageTranslatorV3({
@@ -41,9 +41,10 @@ const translator = new LanguageTranslatorV3({
 app.get('/', function(req, res) {
   // If hide_header is found in the query string and is set to 1 or true,
   // the header should be hidden. Default is to show header
-  res.render('index', {
-    hideHeader: !!(req.query.hide_header == 'true' || req.query.hide_header == '1'),
-  });
+  // res.render('index', {
+  //   hideHeader: !!(req.query.hide_header == 'true' || req.query.hide_header == '1'),
+  // });
+  res.sendFile('app.html', {root: 'build/client'});
 });
 
 app.get('/api/models', function(req, res, next) {
@@ -79,5 +80,5 @@ app.post('/api/translate', function(req, res, next) {
 });
 
 // express error handler
-require('./config/error-handler')(app);
+require('./error-handler')(app);
 module.exports = app;
