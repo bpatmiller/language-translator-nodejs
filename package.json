@@ -33,6 +33,9 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "carbon-components": "^10.9.0",
+    "carbon-components-react": "^7.9.0",
+    "carbon-icons": "^7.0.7",
     "dotenv": "^8.2.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",

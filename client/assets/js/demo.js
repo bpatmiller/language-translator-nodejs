@@ -27,6 +27,7 @@ $(document).ready(function () {
 
   // Update input-output dropdown based on selected domain
   $('input:radio[name=group1]').click(function () {
+    console.log("click!");
     sourceList = [];
     pageDomain = $(this).val();
 
@@ -58,10 +59,10 @@ $(document).ready(function () {
       }
     }
 
-    // Sort by source then target ,so source languages are sorted in dropdown 
+    // Sort by source then target ,so source languages are sorted in dropdown
     sourceList.sort(function(a,b) {
       return (a.source > b.source) ? 1 : ((b.source > a.source) ? -1 :
-        ( a.target < b.target ? -1 : a.target > b.target ? 1 : 0)); 
+        ( a.target < b.target ? -1 : a.target > b.target ? 1 : 0));
     });
 
     // Update Input Dropdown Menu with Source Language
